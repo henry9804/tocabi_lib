@@ -125,6 +125,7 @@ add_library(${PROJECT_NAME}
   src/link.cpp
   src/qp.cpp
   src/wholebody_functions.cpp
+  include/shm_msgs.h
 )
 
 ## Add cmake target dependencies of the library

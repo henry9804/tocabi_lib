@@ -22,6 +22,7 @@
 //33 * 6 * 39 * 4
 
 #define MODEL_DOF 33
+#define HAND_DOF 20
 
 typedef struct SHMmsgs
 {
@@ -56,6 +57,10 @@ typedef struct SHMmsgs
     float posExt[MODEL_DOF];
     volatile int16_t elmo_torque[MODEL_DOF];
 
+    float hand_acc[HAND_DOF];
+    float hand_vel[HAND_DOF];
+    float hand_pos[HAND_DOF];
+
     float sim_time_;
 
     float pos_virtual[7]; //virtual pos(3) + virtual quat(4)
@@ -84,6 +89,7 @@ typedef struct SHMmsgs
     int commandMode[MODEL_DOF]; //command mode 0 -> off 1 -> torque 2 -> position
     float torqueCommand[MODEL_DOF];
     float positionCommand[MODEL_DOF];
+    float handCommand[HAND_DOF];
 
     std::atomic<bool> cmd_upper;
     std::atomic<bool> cmd_lower;
